@@ -1,27 +1,36 @@
 
 package source.pkg01;
 
+import java.util.ArrayList;
+
 
 public class Emprestimo {
     private String nomeFiador;
-    private String cpfFiador;
+    private Cpf cpfFiador = new Cpf("");
     private double valor;
     private double valorPago;
+    private ListaPagamentos pagamentos = new ListaPagamentos();
 
+    public Cpf getCpfFiador() {
+        return cpfFiador;
+    }
+
+    public void setCpfFiador(Cpf cpfFiador) {
+        this.cpfFiador = cpfFiador;
+    }
+
+    public void addPagamento(Pagamento pag){
+        pagamentos.add(pag);
+    }
+   
+   
+    
     public String getNomeFiador() {
         return nomeFiador;
     }
 
     public void setNomeFiador(String nomeFiador) {
         this.nomeFiador = nomeFiador;
-    }
-
-    public String getCpfFiador() {
-        return cpfFiador;
-    }
-
-    public void setCpfFiador(String cpfFiador) {
-        this.cpfFiador = cpfFiador;
     }
 
     public double getValor() {
@@ -36,7 +45,7 @@ public class Emprestimo {
         return valorPago;
     }
     
-    public void pagar(double valor){
+    private void pagar(double valor){
         if (valor < 0)
             throw new IllegalArgumentException("O pagamento não pode ser negativo");
         
@@ -50,5 +59,5 @@ public class Emprestimo {
     }
     
     
-    
+      
 }

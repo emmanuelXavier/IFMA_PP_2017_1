@@ -24,13 +24,13 @@ public class Source01 {
     public static void main(String[] args) {
 
         ContaBancaria conta = new ContaBancaria();
-        conta.registrarEmprestimo("Emmanuel Xavier", "123.123.123-10", 1000);
-        conta.registrarEmprestimo("Suzane Xavier", "123.123.123-11", 2000);
-        conta.registrarEmprestimo("André Xavier", "123.123.123-12", 3000);
-        conta.registrarEmprestimo("Enzo Xavier", "123.123.123-13", 4000);
+        conta.registrarEmprestimo("Emmanuel Xavier", new Cpf("123.123.123-10"), 1000);
+        conta.registrarEmprestimo("Suzane Xavier", new Cpf("123.123.123-11"), 2000);
+        conta.registrarEmprestimo("André Xavier", new Cpf("123.123.123-12"), 3000);
+        conta.registrarEmprestimo("Enzo Xavier", new Cpf("123.123.123-13"), 4000);
         
         
-        conta.pagarEmprestimo("123.123.123-10",100);
+        conta.pagarEmprestimo(new Cpf("123.123.123-10"), new Cpf("123123"),new Date(),100);
         conta.listarEmprestimos();
         
         
