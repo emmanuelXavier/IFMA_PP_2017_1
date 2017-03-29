@@ -8,10 +8,11 @@ public class Emprestimo {
     private String nomeFiador;
     private Cpf cpfFiador = new Cpf("");
     private double valor;
-    private double valorPago;
     private ListaPagamentos pagamentos = new ListaPagamentos();
+    
 
     public Cpf getCpfFiador() {
+    pagamentos.registrarPagamento(pag);
         return cpfFiador;
     }
 
@@ -20,7 +21,7 @@ public class Emprestimo {
     }
 
     public void addPagamento(Pagamento pag){
-        pagamentos.add(pag);
+        pagamentos.registrarPagamento(pag);
     }
    
    
@@ -41,22 +42,15 @@ public class Emprestimo {
         this.valor = valor;
     }
 
-    public double getValorPago() {
-        return valorPago;
-    }
-    
-    private void pagar(double valor){
-        if (valor < 0)
-            throw new IllegalArgumentException("O pagamento não pode ser negativo");
-        
-        if (valorPago < valor)
-            valorPago += valor;
-    }
-    
-    
     public double getDebito(){
-        return  this.valor - this.valorPago;
+        return  this.valor - pagamentos.getValorPago();
     }
+    
+    
+    public double getValorPago(){
+        return pagamentos.getValorPago();
+    }
+    
     
     
       

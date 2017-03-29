@@ -30,15 +30,13 @@ public class ContaBancaria {
     }
     
     public void pagarEmprestimo(Cpf cpfFiador,Cpf cpfPagador, Date data, double valor) {  
-        Emprestimo emp = emprestimos.get(cpfFiador);
+        Emprestimo emp = emprestimos.get(cpfFiador.getValor());
         if (emp != null){
             Pagamento pag = new Pagamento();
             pag.setCpfPagador(cpfPagador);
             pag.setData(data);
             pag.setValor(valor);
             emp.addPagamento(pag);
-            
-            
         }
     }
         
@@ -52,5 +50,8 @@ public class ContaBancaria {
         }
         saldo +=  valor;
     }
+
+   
+    
     
 }
