@@ -12,7 +12,6 @@ public class Emprestimo {
     
 
     public Cpf getCpfFiador() {
-    pagamentos.registrarPagamento(pag);
         return cpfFiador;
     }
 
