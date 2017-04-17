@@ -3,6 +3,8 @@ package source.pkg01;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
+import polimorfismo.Usuario;
 
 public class ContaBancaria {
     private String nomeCliente;
@@ -29,11 +31,11 @@ public class ContaBancaria {
         } 
     }
     
-    public void pagarEmprestimo(Cpf cpfFiador,Cpf cpfPagador, Date data, double valor) {  
+    public void pagarEmprestimo(Cpf cpfFiador,Documento cpfPagador, Date data, double valor) {  
         Emprestimo emp = emprestimos.get(cpfFiador.getValor());
         if (emp != null){
             Pagamento pag = new Pagamento();
-            pag.setCpfPagador(cpfPagador);
+            pag.setDocumento(cpfPagador);
             pag.setData(data);
             pag.setValor(valor);
             emp.addPagamento(pag);

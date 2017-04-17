@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package polimorfismo;
+package source.pkg01;
 
 /**
  *
  * @author xavier
  */
-public class UsuarioSupervisor extends Usuario{
+public interface Documento {
     
-     public void excluir(){
-        
-    }
-    
+    public void setValor(String valor);
+    public String getValor();
+    public boolean validar();
     
     
 }

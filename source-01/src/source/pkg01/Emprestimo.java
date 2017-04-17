@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Emprestimo {
     private String nomeFiador;
-    private Cpf cpfFiador = new Cpf("");
+    private Cpf cpfFiador = new Cpf();
     private double valor;
     private ListaPagamentos pagamentos = new ListaPagamentos();
     
@@ -19,7 +19,8 @@ public class Emprestimo {
         this.cpfFiador = cpfFiador;
     }
 
-    public void addPagamento(Pagamento pag){
+    public void addPagamento(Pagamento pag){ 
+        pag.documentoEhValido();   
         pagamentos.registrarPagamento(pag);
     }
    

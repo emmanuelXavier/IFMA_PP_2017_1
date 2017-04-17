@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package source.pkg01;
+package polimorfismo;
 
 import com.sun.media.sound.AuFileReader;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import polimorfismo.Autenticacao;
 import polimorfismo.Cliente;
@@ -17,6 +18,11 @@ import polimorfismo.Dono;
 import polimorfismo.Usuario;
 import polimorfismo.UsuarioAdm;
 import polimorfismo.UsuarioComum;
+import polimorfismo.UsuarioSupervisor;
+import source.pkg01.Cnh;
+import source.pkg01.Cnpj;
+import source.pkg01.ContaBancaria;
+import source.pkg01.Cpf;
 import sun.util.resources.CalendarData;
 
 /**
@@ -32,24 +38,33 @@ public class Source01 {
     public static void main(String[] args) {
         
         ContaBancaria conta = new ContaBancaria();
-        conta.registrarEmprestimo("Emmanuel Xavier", new Cpf("123.123.123-10"), 1000);
-        conta.registrarEmprestimo("Suzane Xavier", new Cpf("123.123.123-11"), 2000);
-        conta.registrarEmprestimo("André Xavier", new Cpf("123.123.123-12"), 3000);
-        conta.registrarEmprestimo("Enzo Xavier", new Cpf("123.123.123-13"), 4000);
+        conta.registrarEmprestimo("Emmanuel Xavier", new Cpf(), 1000);
+        conta.registrarEmprestimo("Suzane Xavier", new Cpf(), 2000);
+        conta.registrarEmprestimo("André Xavier", new Cpf(), 3000);
+        conta.registrarEmprestimo("Enzo Xavier", new Cpf(), 4000);
         
         
-        conta.pagarEmprestimo(new Cpf("123.123.123-10"), new Cpf("123123"),new Date(),100);
+        conta.pagarEmprestimo(new Cpf(), new Cnh(),new Date(),100);
         conta.listarEmprestimos();
         
         
-        Dono obj = new Dono();
+        //Dono obj = new Dono();
       
-        obj.autenticar();
+        //obj.autenticar();
         
         
         //controllerAutenticacao(fabrica("Dono"));
               
+        Usuario user = new UsuarioSupervisor();
+        //user.nome = "Silas";
+        user.excluir();
+        JFrame janela = new JFrame("Minha janela");
+        janela.setBounds(0, 0, 500, 500);
+        janela.setVisible(true);
+        JOptionPane.showMessageDialog(null, "tyeste");
+        JOptionPane.showMessageDialog(janela, "teste", "Silas sistemas", JOptionPane.ERROR_MESSAGE);
     }
+    
     
     private static Autenticacao fabrica(String classe){
         try {

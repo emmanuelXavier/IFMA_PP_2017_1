@@ -5,16 +5,16 @@ import java.util.Date;
 
 
 public class Pagamento {
-    private Cpf cpfPagador = new Cpf("");
+    private Documento doc;
     private Date data;
     private double valor;
 
-    public Cpf getCpfPagador() {
-        return cpfPagador;
+    public Documento getDoc() {
+        return doc;
     }
 
-    public void setCpfPagador(Cpf cpfPagador) {
-        this.cpfPagador = cpfPagador;
+    public void setDocumento(Documento doc) {
+        this.doc = doc ;
     }
 
     public Date getData() {
@@ -33,6 +33,10 @@ public class Pagamento {
         this.valor = valor;
     }
     
+    
+    public boolean documentoEhValido(){
+        return this.doc.validar();
+    }
     
     
 }

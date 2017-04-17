@@ -13,4 +13,8 @@ public class UsuarioAdm extends Usuario implements Autenticacao{
         return true;
     }
     
+    public void excluir(){
+        
+    }
+    
 }

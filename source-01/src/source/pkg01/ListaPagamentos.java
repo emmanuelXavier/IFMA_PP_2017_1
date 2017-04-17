@@ -1,21 +1,13 @@
 package source.pkg01;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ListaPagamentos {
         
-    private ArrayList<Pagamento> pagamentos = new ArrayList<Pagamento>();
+    private List<Pagamento> pagamentos = new ArrayList<Pagamento>();
     
-    public ArrayList<Pagamento> pagamentosDe(String cpfPagador){
-        ArrayList<Pagamento> listaFiltrada = new ArrayList<Pagamento>();
-        for (Pagamento pag: pagamentos){
-            if (pag.getCpfPagador().equals(cpfPagador))
-                listaFiltrada.add(pag);
-        }
-        
-        return listaFiltrada;
-    }
     
     public ArrayList<Pagamento> pagamentosMaioresQue(double valor){
         ArrayList<Pagamento> listaFiltrada = new ArrayList<Pagamento>();
