@@ -12,13 +12,9 @@ public class ContaBancaria {
     private float saldo;
     private HashMap<String, Emprestimo> emprestimos = new HashMap<String, Emprestimo>();
     
-    public void registrarEmprestimo(String nomeFiador, Cpf cpfFiador, double valor){
-        Emprestimo emprestimo = new Emprestimo();
-        emprestimo.setNomeFiador(nomeFiador);
-        emprestimo.setCpfFiador(cpfFiador);
-        emprestimo.setValor(valor);
-
-        emprestimos.put(cpfFiador.getValor(), emprestimo);
+    public void registrarEmprestimo(Emprestimo emprestimo){
+        
+        emprestimos.put(emprestimo.getCpfFiador(), emprestimo);
     }
     
     public void listarEmprestimos(){

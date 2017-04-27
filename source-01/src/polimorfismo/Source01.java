@@ -23,6 +23,7 @@ import source.pkg01.Cnh;
 import source.pkg01.Cnpj;
 import source.pkg01.ContaBancaria;
 import source.pkg01.Cpf;
+import source.pkg01.Emprestimo;
 import sun.util.resources.CalendarData;
 
 /**
@@ -38,10 +39,17 @@ public class Source01 {
     public static void main(String[] args) {
         
         ContaBancaria conta = new ContaBancaria();
-        conta.registrarEmprestimo("Emmanuel Xavier", new Cpf(), 1000);
-        conta.registrarEmprestimo("Suzane Xavier", new Cpf(), 2000);
+        Emprestimo emprestimo = new Emprestimo();
+        emprestimo.setNomeFiador("EMmaneul");
+        emprestimo.setCpfFiador(new Cpf());
+
+        emprestimo.setValor(10);
+        
+        
+        conta.registrarEmprestimo(emprestimo);
+       /* conta.registrarEmprestimo("Suzane Xavier", new Cpf(), 2000);
         conta.registrarEmprestimo("André Xavier", new Cpf(), 3000);
-        conta.registrarEmprestimo("Enzo Xavier", new Cpf(), 4000);
+        conta.registrarEmprestimo("Enzo Xavier", new Cpf(), 4000);*/
         
         
         conta.pagarEmprestimo(new Cpf(), new Cnh(),new Date(),100);
@@ -53,7 +61,7 @@ public class Source01 {
         //obj.autenticar();
         
         
-        //controllerAutenticacao(fabrica("Dono"));
+        controllerAutenticacao(new AdapterCliente());
               
         Usuario user = new UsuarioSupervisor();
         //user.nome = "Silas";

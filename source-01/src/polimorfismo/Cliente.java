@@ -3,7 +3,7 @@ package polimorfismo;
 
 import source.pkg01.Emprestimo;
 
-public class Cliente extends Emprestimo implements Autenticacao{
+public class Cliente {
     
     private String cpf;
     private String nome;
@@ -12,7 +12,7 @@ public class Cliente extends Emprestimo implements Autenticacao{
  
     
     
-    public boolean autenticar(){
+    public boolean autenticacao(){
         //code 01
         return true;
     }
